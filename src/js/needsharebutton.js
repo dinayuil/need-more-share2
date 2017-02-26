@@ -1,5 +1,5 @@
-/*********************************************** 
-  needShareButton 
+/***********************************************
+  needShareButton
   - Version 1.0.0
   - Copyright 2015 Dzmitry Vasileuski
 	- Licensed under MIT (http://opensource.org/licenses/MIT)
@@ -17,7 +17,7 @@
 		/* Helpers
 		***********************************************/
 
-    // get title from html 
+    // get title from html
     root.getTitle = function() {
 	    var content;
 	    // check querySelector existance for old browsers
@@ -36,20 +36,20 @@
 		  }
 	  };
 
-	  // get image from html 
+	  // get image from html
 	  root.getImage = function() {
 	    var content;
 	    // check querySelector existance for old browsers
 	    if (document.querySelector) {
 		    if (content = document.querySelector('meta[property="og:image"]') || document.querySelector('meta[name="twitter:image"]')) {
 		      return content.getAttribute('content');
-		    } else 
+		    } else
 		    	return '';
-		  } else 
+		  } else
 		  	return '';
 	  };
 
-	  // get description from html 
+	  // get description from html
 	  root.getDescription = function() {
 	    var content;
 	    // check querySelector existance for old browsers
@@ -68,6 +68,26 @@
 
 	  // share urls for all networks
 	  root.share = {
+	  	'weibo': function () {
+	  		var url = 'http://v.t.sina.com.cn/share/share.php?title='
+	  		+ encodeURIComponent(root.options.title)
+	  		+ "&url="+encodeURIComponent(root.options.url)
+	  		+ "&pic="+encodeURIComponent(root.options.image);
+	  		root.popup(url);
+	  	},
+	  	'wechat': function () {
+	  		var imgSrc = 'https://api.qinco.me/api/qr?size=400&content='+encodeURIComponent(root.options.url);
+	  		var img = root.dropdown.getElementsByClassName('need-share-wechat-code-image')[0];
+	  		if (img) {
+	  			img.remove();
+	  		} else {
+		  		img = document.createElement('img');
+		  		img.src = imgSrc;
+		  		img.alt = 'loading wechat image...';
+		  		img.setAttribute("class",'need-share-wechat-code-image');
+		  		root.dropdown.appendChild(img);
+	  		}
+	  	},
 	  	'mailto' : function() {
 	  		var url = 'mailto:?subject=' + encodeURIComponent(root.options.title) + '&body=Thought you might enjoy reading this: ' + encodeURIComponent(root.options.url) + ' - ' + encodeURIComponent(root.options.description);
 
@@ -234,8 +254,8 @@
 	  // open share link in a popup
 	  root.popup = function(url) {
 	  	// set left and top position
-	  	var popupWidth = 500,
-	  			popupHeight = 400,
+	  	var popupWidth = 600,
+	  			popupHeight = 500,
 	  			// fix dual screen mode
 	  			dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left,
 	  		  dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top,
@@ -296,7 +316,7 @@
 			title: root.getTitle(),
 			image: root.getImage(),
 			description: root.getDescription(),
-			networks: 'Mailto,Twitter,Pinterest,Facebook,GooglePlus,Reddit,Delicious,Tapiture,StumbleUpon,Linkedin,Slashdot,Technorati,Posterous,Tumblr,GoogleBookmarks,Newsvine,Pingfm,Evernote,Friendfeed,Vkontakte,Odnoklassniki,Mailru'
+			networks: 'Weibo,Wechat,Twitter,Pinterest,Facebook,GooglePlus,Reddit,Linkedin,Tumblr,Evernote'
 		}
 
     // integrate custom options
@@ -343,6 +363,8 @@
     	if (!root.elem.className.match(/need-share-button-opened/)) {
     		root.elem.className += ' need-share-button-opened';
     	} else {
+    		var wechatImg = root.dropdown.getElementsByClassName('need-share-wechat-code-image')[0];
+    		if (wechatImg) wechatImg.remove();
     		root.elem.className = root.elem.className.replace(/\s*need-share-button-opened/g,'');
     	}
     });
@@ -403,6 +425,7 @@
 			var link = document.createElement('span');
 			    network = root.options.networks[network];
 			link.className = iconClass + network;
+			link.className += ' icon-' + network;
 			link.dataset.network = network;
 			root.dropdown.appendChild(link);
 

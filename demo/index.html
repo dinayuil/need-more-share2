@@ -27,24 +27,24 @@
 	<body>
 		<div class="wrapper">
 			<h2>Share button default mode on bottom center</h2>
-			<div id="share-button-1" class="need-share-button-default" data-share-position="bottomCenter"></div>
+			<div id="i-share" data-share-position="bottomCenter" class="need-share-button-default">
+				<i class="i-share icon-share" aria-hidden="true"></i>
+			</div>
+
 			<h2>Share button box mode with chosen networks</h2>
-			<div id="share-button-2" class="need-share-button-default" data-share-icon-style="box" data-share-networks="Wechat,Twitter,Pinterest,Facebook,GooglePlus,Linkedin"></div>
+			<div id="share-button-2" class="need-share-button-default" data-share-icon-style="box" data-share-networks="Wechat,Twitter,Pinterest,Facebook,GooglePlus,Linkedin">Share</div>
 			<h2>Share button default mode on middle right</h2>
-			<div id="share-button-3" class="need-share-button-default" data-share-position="middleRight" data-share-networks="Wechat,Twitter,Pinterest,Facebook,GooglePlus,Linkedin"></div>
+			<div id="share-button-3" class="need-share-button-default" data-share-position="middleRight" data-share-networks="Wechat,Twitter,Pinterest,Facebook,GooglePlus,Linkedin">Share</div>
 			<h2>Share button box mode on middle right</h2>
-			<div id="share-button-4" class="need-share-button-default" data-share-position="middleRight" data-share-icon-style="box" data-share-networks="Wechat,Twitter,Pinterest,Facebook,GooglePlus,Linkedin"></div>
-			<h2>Share button with custom button</h2>
-			<div id="share-button-5" class="need-share-button-default" data-share-position="topCenter" data-share-share-button-class="custom-button"><span class="custom-button"><strong>Share it</strong></span></div>
+			<div id="share-button-4" class="need-share-button-default" data-share-position="middleRight" data-share-icon-style="box" data-share-networks="Wechat,Twitter,Pinterest,Facebook,GooglePlus,Linkedin">Share</div>
 		</div>
 
 		<script src="../dist/needsharebutton.js"></script>
 		<script>
-			new needShareDropdown(document.getElementById('share-button-1'));
+			new needShareDropdown(document.getElementById('i-share'));
 			new needShareDropdown(document.getElementById('share-button-2'));
 			new needShareDropdown(document.getElementById('share-button-3'));
 			new needShareDropdown(document.getElementById('share-button-4'));
-			new needShareDropdown(document.getElementById('share-button-5'));
 		</script>
 	</body>
 </html>

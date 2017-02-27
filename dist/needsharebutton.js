@@ -306,11 +306,9 @@
 
 		// create default options
 		root.options = {
-			shareButtonClass: false, // child selector of custom share button
 			iconStyle: 'default', // default or box
 			boxForm: 'horizontal', // horizontal or vertical
 			position: 'bottomCenter', // top / middle / bottom + Left / Center / Right
-			buttonText: 'Share',
 			protocol: ['http', 'https'].indexOf(window.location.href.split(':')[0]) === -1 ? 'https://' : '//',
 			url: window.location.href,
 			title: root.getTitle(),
@@ -340,32 +338,16 @@
     // convert networks string into array
     root.options.networks = root.options.networks.toLowerCase().split(',');
 
-		/* Create layout
-		***********************************************/
-
-		// create dropdown button if not exists
-		if (root.options.shareButtonClass) {
-			for (var i = 0; i < root.elem.children.length; i++) {
-				if (root.elem.children[i].className.match(root.options.shareButtonClass))
-					root.button = root.elem.children[i];
-			}
-		}
-		if (!root.button) {
-			root.button = document.createElement('span');
-			root.button.innerText = root.options.buttonText;
-			root.elem.appendChild(root.button);
-		}
-		root.button.className += ' need-share-button_button';
-
-		// show and hide dropdown
-    root.button.addEventListener('click', function(event) {
+	// show and hide dropdown
+    root.elem.addEventListener('click', function(event) {
     	event.preventDefault();
-    	if (!root.elem.className.match(/need-share-button-opened/)) {
-    		root.elem.className += ' need-share-button-opened';
+    	if (!root.elem.classList.contains('need-share-button-opened')) {
+    		root.elem.classList.add('need-share-button-opened');
     	} else {
+    		// hide wechat code image when close the dropdown.
     		var wechatImg = root.dropdown.getElementsByClassName('need-share-wechat-code-image')[0];
     		if (wechatImg) wechatImg.remove();
-    		root.elem.className = root.elem.className.replace(/\s*need-share-button-opened/g,'');
+    		root.elem.classList.remove('need-share-button-opened');
     	}
     });
 
@@ -431,15 +413,21 @@
 
 			// add share function to event listener
       link.addEventListener('click', function() {
+      	event.preventDefault();
+      	event.stopPropagation();
       	root.share[this.dataset.network]();
+      	return false;
       });
     }
 
     // close on click outside
     document.addEventListener('click', function(event) {
-      if (!closest(event.target.parentNode, root.elem)) {
-		    root.elem.className = root.elem.className.replace(/\s*need-share-button-opened/g,'');
-		  }
+      if (!closest(event.target, root.elem)) {
+		    // hide wechat code image when close the dropdown.
+		    var wechatImg = root.dropdown.getElementsByClassName('need-share-wechat-code-image')[0];
+		    if (wechatImg) wechatImg.remove();
+		    root.elem.classList.remove('need-share-button-opened');
+	  }
     });
 
   }

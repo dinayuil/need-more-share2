@@ -1,4 +1,4 @@
-#need-more-share 1.0.0
+#need-more-share 1.0.0  
 Thanks for DzmVasileusky's excellent job, I found his work is very efficient in some ways below:
 
 * no need jQuery, just pure Javascript.
@@ -11,7 +11,8 @@ But in some ways it doesn't fill all of my purposes, so I reworked on it, there 
 * remove dependance to any buttons.
 * use embed font styles instead of wof/ttf files.
 
-All demos could be found at [demo](demo/index.html).
+All demos could be found at [demo](demo/index.html).  
+
 ![screenshot](screenshot.png)
 
 Below is the original needShareButton's description.

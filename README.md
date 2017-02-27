@@ -1,4 +1,4 @@
-#need-more-share 1.0.0  
+#need-more-share 2  
 Thanks for DzmVasileusky's excellent job, I found his work is very efficient in some ways below:
 
 * no need jQuery, just pure Javascript.

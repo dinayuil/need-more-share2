@@ -21,7 +21,7 @@
 
 }
 
-@elemWidth: 40px;
+@elemWidth: 50px;
 
 .need-share-button_dropdown {
   position: absolute;
@@ -36,6 +36,7 @@
   transform: scale(.1);
   transition: .3s;
 
+  font-size: 16px;
 
   position: absolute;
   background-color: #fff;
@@ -69,15 +70,6 @@
   line-height: @elemWidth;
   text-align: center;
   cursor: pointer;
-
-  // hide text
-
-  &:after {
-    font: normal normal normal 16px/1 'social-icons';
-    speak: none;
-    text-align: center;
-    text-transform: none;
-  }
 
   &:hover {
     transition: .3s;
@@ -152,7 +144,6 @@
     font-weight: 400;
     line-height: 1.42857143;
     text-align: center;
-    white-space: nowrap;
     vertical-align: middle;
     cursor: pointer;
     -webkit-user-select: none;

@@ -14,7 +14,7 @@
   position: relative;
 }
 .need-share-button_dropdown {
-  width: 240px;
+  width: 300px;
   z-index: 10;
   overflow: hidden;
   text-align: center;
@@ -23,6 +23,7 @@
   opacity: 0;
   transform: scale(0.1);
   transition: .3s;
+  font-size: 16px;
   position: absolute;
   background-color: #fff;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
@@ -37,7 +38,7 @@
   border-radius: 0;
 }
 .need-share-button_dropdown-box-vertical {
-  width: 40px;
+  width: 50px;
 }
 .need-share-button_dropdown-box-horizontal {
   width: auto;
@@ -45,17 +46,11 @@
 }
 .need-share-button_link {
   display: inline-block;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
   text-align: center;
   cursor: pointer;
-}
-.need-share-button_link:after {
-  font: normal normal normal 16px/1 'social-icons';
-  speak: none;
-  text-align: center;
-  text-transform: none;
 }
 .need-share-button_link:hover {
   transition: .3s;
@@ -117,7 +112,6 @@
   font-weight: 400;
   line-height: 1.42857143;
   text-align: center;
-  white-space: nowrap;
   vertical-align: middle;
   cursor: pointer;
   -webkit-user-select: none;

@@ -409,6 +409,7 @@
 			link.className = iconClass + network;
 			link.className += ' icon-' + network;
 			link.dataset.network = network;
+			link.title = network;
 			root.dropdown.appendChild(link);
 
 			// add share function to event listener

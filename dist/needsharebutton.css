@@ -21,7 +21,9 @@
   visibility: hidden;
   overflow: hidden;
 
-  width: 240px;
+  width: 300px;
+
+  font-size: 16px;
 
   -webkit-transition: .3s;
           transition: .3s;
@@ -52,7 +54,7 @@
           border-radius: 0;
 }
 .need-share-button_dropdown-box-vertical {
-  width: 40px;
+  width: 50px;
 }
 .need-share-button_dropdown-box-horizontal {
   width: auto;
@@ -62,21 +64,13 @@
 .need-share-button_link {
   display: inline-block;
 
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 
-  line-height: 40px;
+  line-height: 50px;
 
   cursor: pointer;
   text-align: center;
-}
-.need-share-button_link:after {
-  font: normal normal normal 16px/1 'social-icons';
-
-  text-align: center;
-  text-transform: none;
-
-  speak: none;
 }
 .need-share-button_link:hover {
   -webkit-transition: .3s;
@@ -158,7 +152,6 @@
           user-select: none;
   text-align: center;
   vertical-align: middle;
-  white-space: nowrap;
 
   border: 1px solid #ccc;
   -webkit-border-radius: 4px;

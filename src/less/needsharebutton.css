@@ -7,11 +7,14 @@
 /* Social icons font
 ***********************************************/
 @import url("fontello-embedded.css");
-/* Share button
-***********************************************/
-.need-share-button {
-  display: inline-block;
+.need-share-button-opened {
   position: relative;
+}
+.need-share-button-opened img.need-share-wechat-code-image {
+  width: 100%;
+  max-width: 200px;
+  display: block;
+  margin: auto;
 }
 .need-share-button_dropdown {
   width: 300px;
@@ -292,9 +295,4 @@
 .need-share-button_mailru.need-share-button_link-box {
   background: #F89C0E;
   color: #fff;
-}
-.need-share-wechat-code-image {
-  width: 100%;
-  display: block;
-  margin: auto;
 }

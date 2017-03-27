@@ -474,4 +474,5 @@
 
   };
 
+  new needShareDropdown('.need-share-button');
 })();

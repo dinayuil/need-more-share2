@@ -37,15 +37,18 @@
 			<div id="share-button-3" class="need-share-button-default" data-share-position="middleRight" data-share-networks="Wechat,Twitter,Pinterest,Facebook,GooglePlus,Linkedin">Share</div>
 			<h2>Share button box mode on middle right</h2>
 			<div id="share-button-4" class="need-share-button-default" data-share-position="middleRight" data-share-icon-style="box" data-share-networks="Wechat,Twitter,Pinterest,Facebook,GooglePlus,Linkedin">Share</div>
+
+			<h2>Share button with class name 'need-share-button'</h2>
+			<div id="share-button-5" class="need-share-button-default need-share-button" data-share-position="middleRight" data-share-icon-style="box" data-share-networks="Wechat,Twitter,Pinterest,Facebook,GooglePlus,Linkedin">Share</div>
+
 		</div>
 
 		<script src="../dist/needsharebutton.js"></script>
 		<script>
-			// new needShareDropdown(document.getElementById('i-share'));
-			// new needShareDropdown(document.getElementById('share-button-2'));
-			// new needShareDropdown(document.getElementById('share-button-3'));
-			// new needShareDropdown(document.getElementById('share-button-4'));
-			new needShareDropdown('.need-share-button-default');
+			new needShareDropdown(document.getElementById('i-share'));
+			new needShareDropdown(document.getElementById('share-button-2'));
+			new needShareDropdown(document.getElementById('share-button-3'));
+			new needShareDropdown(document.getElementById('share-button-4'));
 		</script>
 	</body>
 </html>

@@ -1,7 +1,7 @@
 {
   "name": "needPopup",
   "description": "Responsive, easy to use modal windows developed on Javascript with JQuery.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "./Gruntfile.js",
   "devDependencies": {
     "grunt": "~0.4.1",

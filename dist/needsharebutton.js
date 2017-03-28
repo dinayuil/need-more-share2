@@ -125,8 +125,8 @@
 	  	},
 	  	'twitter' : function(el) {
             var myoptions = getOptions(el);
-	  		var url = myoptions.protocol + 'twitter.com/home?status=';
-	  		url += encodeURIComponent(myoptions.title) + encodeURIComponent(myoptions.url);
+	  		var url = myoptions.protocol + 'twitter.com/intent/tweet?text=';
+	  		url += encodeURIComponent(myoptions.title) + "&url=" + encodeURIComponent(myoptions.url);
 
         root.popup(url);
 	  	},

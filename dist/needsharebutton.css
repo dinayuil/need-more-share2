@@ -7,6 +7,9 @@
 /* Social icons font
 ***********************************************/
 @import url('fontello-embedded.css');
+.need-share-button {
+  position: relative;
+}
 .need-share-button-opened {
   position: relative;
 }
@@ -34,6 +37,7 @@
       -ms-transform: scale(.1);
           transform: scale(.1);
   text-align: center;
+  white-space: normal;
 
   opacity: 0;
   -webkit-border-radius: 4px;

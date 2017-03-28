@@ -10,6 +10,10 @@
 
 @import url("fontello-embedded.css");
 
+.need-share-button {
+  position: relative;  // The share button position must be relative.
+}
+
 .need-share-button-opened {
   position: relative;
 
@@ -34,6 +38,7 @@
   visibility: hidden;
   opacity: 0;
   transform: scale(.1);
+  // transition: opacity .25s ease-in;
   transition: .3s;
 
   font-size: 16px;
@@ -41,6 +46,8 @@
   position: absolute;
   background-color: #fff;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+
+  white-space: normal;  // auto new line for inline-block link buttons.
 
   .need-share-button-opened & {
     visibility: visible;

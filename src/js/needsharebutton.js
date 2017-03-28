@@ -376,7 +376,9 @@
         // create dropdown
         var dropdownEl = document.createElement('span');
         dropdownEl.className = 'need-share-button_dropdown';
-        el.appendChild(dropdownEl);
+        if (el.querySelector('.need-share-button_dropdown')) {
+            return;
+        }
         var myoptions = getOptions(el);
 
         // set dropdown row length
@@ -446,26 +448,29 @@
            }
         });
 
+        el.appendChild(dropdownEl);
     }
 
    // close on click outside
      document.addEventListener('click', function(event) {
        var openedEl = document.querySelector('.need-share-button-opened');
        if (!closest(event.target, '.need-share-button-opened')) {
-         // hide wechat code image when close the dropdown.
-         // var wechatImg = root.dropdown.getElementsByClassName('need-share-wechat-code-image')[0];
-         // if (wechatImg) wechatImg.remove();
          if (openedEl) {
             openedEl.classList.remove('need-share-button-opened');
-            if (openedEl.querySelector('.need-share-button_dropdown')) {
-                openedEl.querySelector('.need-share-button_dropdown').remove();
+
+            // hide wechat code image when close the dropdown.
+            if (openedEl.querySelector('.need-share-wechat-code-image')) {
+                openedEl.querySelector('.need-share-wechat-code-image').remove();
             }
          } else {
             var el = closest(event.target, root.elem);
             if (el) {
                if (!el.classList.contains('need-share-button-opened')) {
-                 el.classList.add('need-share-button-opened');
                  createDropdown(el);
+                 setTimeout(function () {
+                     el.classList.add('need-share-button-opened');
+                 }, 1);
+
                }
             }
          }

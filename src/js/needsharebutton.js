@@ -334,12 +334,8 @@
 			boxForm: 'horizontal', // horizontal or vertical
 			position: 'bottomCenter', // top / middle / bottom + Left / Center / Right
 			protocol: ['http', 'https'].indexOf(window.location.href.split(':')[0]) === -1 ? 'https://' : '//',
-			url: window.location.href,
-			title: root.getTitle(),
-			image: root.getImage(),
-			description: root.getDescription(),
 			networks: 'Weibo,Wechat,Twitter,Pinterest,Facebook,GooglePlus,Reddit,Linkedin,Tumblr,Evernote'
-		}
+		};
 
     // integrate custom options
     for (var i in options) {
@@ -354,6 +350,13 @@
         for (var i in root.options) {
           ret[i] = root.options[i];
         }
+
+        // these attrs must get dynamically.
+        ret.url = window.location.href;
+        ret.title = root.getTitle();
+        ret.image = root.getImage();
+        ret.description = root.getDescription();
+
         for (var option in el.dataset) {
             // replace only 'share-' prefixed data-attributes
           if (option.match(/share/)) {
@@ -365,6 +368,9 @@
             var val = el.dataset[option];
             if (new_option === 'networks') {
                 val = val.toLowerCase().split(',');
+            } else if (new_option === 'url' && val && val[0] === '/') {
+                // fix relative url problem.
+                val = location.origin + val;
             }
             ret[new_option] = val;
           }

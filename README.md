@@ -1,160 +1,60 @@
-#need-more-share 2  
-Thanks for DzmVasileusky's excellent job, I found his work is very efficient in some ways below:
+## 起因
+本来 V2MM 一直使用 [MoreBasicShare](https://github.com/revir/more-basic-share/) 相安无事的，在将 [MoreBasicShare](https://github.com/revir/more-basic-share/) 移植到 V2MM 的[博客评论系统](https://nodebb.tech/blog-comments2-bu-jin-jin-shi-yi-ge-bo-ke-ping-lun-xi-tong/)的时候，发现 [MoreBasicShare](https://github.com/revir/more-basic-share/) 有几点缺陷难以移植：
 
-* no need jQuery, just pure Javascript.
-* well constructed source files, easy to extend.
-* use font style, instead of images.
+* 代码结构不好，不方便扩展新的分享方式，其中用了大量的字符串拼接；
+* 依赖 jQuery, 而我们的博客评论系统是不依赖 jQuery 的；
 
-But in some ways it doesn't fill all of my purposes, so I reworked on it, there it is:
+偶然发现一个老外写的纯 Javascript 的 [Need Share Button](https://github.com/DzmVasileusky/needShareButton), 效果非常好，于是就 Clone 了过来，扩展了一下，增加了很多国内的分享网站，做得更傻瓜易用了一些。
 
-* add weibo & wechat social networks for Chinese.
-* remove dependance to any buttons.
-* use embed font styles instead of wof/ttf files.
+## Demo
+可以见 V2MM 上的分享按钮，此插件还包含一个 [Demo](https://github.com/revir/need-more-share2/blob/master/demo/index.html) 页面可以在本地展示。
 
-All demos could be found at [demo](demo/index.html).  
+![screenshot](https://github.com/revir/need-more-share2/raw/master/screenshot.png)
 
-![screenshot](screenshot.png)
+## 使用方式
 
-Below is the original needShareButton's description.
+有多种方式使用，最简单的方法，加载 js 和 css 后，创建一个 class 名为 `need-share-button` 的分享按钮就好了，其他什么都不用做。
 
-#needShareButton 1.0.0
-##Do you need share button dropdown? Here you go!
-
-###Short facts
-* Pure Javascript, no need to use jQuery
-* 21 social networks and mailto links
-* 2 different view styles
-* Easily configurable position of dropdown
-* Possibility to set options via data-attributes
-* Browsers: Firefox, Chrome, Safari, iOS, Android, IE9+
-
-Written by: Dzmitry Vasileuski
-
-###License
-Released under the MIT license - http://opensource.org/licenses/MIT
-
-##Getting started
-
-###Step 1: Add required files from dist directory
-
-Download the package from this repository and include needsharebutton.min.js and needsharebutton.min.css.
-
-```html
-<!-- needPopup Javascript file -->
+1. 在网页里加载 **needsharebutton.min.js** 和 **needsharebutton.min.css**。
+```markup
+<!-- needsharebutton Javascript file -->
 <script src="js/needsharebutton.min.js"></script>
-<!-- needPopup CSS file -->
+<!-- needsharebutton CSS file -->
 <link href="css/needsharebutton.min.css" rel="stylesheet" />
 ```
 
-###Step 2: Create HTML markup
-
-Create an empty element, which will be the wrapper of our button and dropdown.
-You can add data-attributes to easily configure script.
-
-```html
-<span id="share-button" class="need-share-button-default"></span>
+2. 创建一个`need-share-button`，插件会自动找到所有 `need-share-button`, 制作成分享按钮。
+```markup
+<button  class="btn btn-default need-share-button">Share</button>
 ```
+这样你会看到网页上的 Share Button 已经可以使用了。
 
-###Step 3: Call needShareButton initialization
-
-Just place `new needShareDropdown(document.getElementById('share-button'));` in your javascript code.
+3. 如果需要使用别的名字，可以手动调用 `needShareButton` 函数，比如：
 
 ```javascript
-new needShareDropdown(document.getElementById('share-button'));
+new needShareButton(document.getElementById('my-share-button'));
+# or
+new needShareButton('#my-share-button');
+
 ```
 
-##Customization
+## needShareButton 函数
 
-There are two ways to set settings.
+`needShareButton` 函数有两个参数：
+1. element, 可以是 Dom 节点，也可以是 CSS 选择器;
+2. options, 选项；
 
-The first way is to add data-attributes with `data-share` prefix.
-```html
-<div id="share-button" class="need-share-button-default" data-share-icon-style="box" data-share-networks="Mailto,Twitter,Pinterest,Facebook,GooglePlus,Linkedin"></div>
-```
-The second way is to send settings object with script initialization.
-```javascript
-new needShareDropdown(document.getElementById('share-button'), {
-  iconStyle: 'box',
-  boxForm: 'vertical',
-  networks: 'Mailto,Twitter,Pinterest,Facebook,GooglePlus,Linkedin'
-});
-```
+## Options
+Options 可以通过参数传进去，也可以放在 DOM 节点里（加上 `data-share-` 前缀）。
 
-To use your own stylized button to trigger social share dropdown, you need to put custom element inside wrapper and set `shareButtonClass` option
-```html
-<div id="share-button" class="need-share-button-default" data-share-position="topCenter" data-share-share-button-class="custom-button"><span class="custom-button"><i class="share-icon"></i> Custom Share Button</span></div>
-```
+1. iconStyle： `default` or `box`；
+2. boxForm： `horizontal` or `vertical`;
+3. position: `bottomCenter`, `top / middle / bottom + Left / Center / Right`;
+4. networks: 默认： `'Weibo,Wechat,Twitter,Pinterest,Facebook,GooglePlus,Reddit,Linkedin,Tumblr,Evernote'`;
+5. url: 默认： `location.href`;
+6. title: 默认：`document.title`;
+7. image: 默认从 `meta[property="og:image"]` 或 `meta[name="twitter:image"]` 取值；
+8. description: 默认从 `meta[property="og:description"]` 或 `meta[name="twitter:description"]` 取值；
 
-That's all. Please, enjoy to use.
-
-###Options
-
-**shareButtonClass**
-Class of children element which should be used as dropdown trigger button
-```
-default: 'false'
-options: Any string
-```
-
-**iconStyle**
-View style
-```
-default: 'default'
-options: 'default', 'box'
-```
-
-**boxForm**
-In the box view you can configure links position
-```
-default: 'horizontal'
-options: 'horizontal', 'vertical'
-```
-
-**position**
-Dropdown position relatively to button
-```
-default: 'bottomCenter'
-options: 'topLeft', 'topRight', 'topCenter', 'middleLeft', 'middleRight', 'bottomLeft', 'bottomRight', 'bottomCenter'
-```
-
-**buttonText**
-Text on the share button
-```
-default: 'Share'
-options: Any string
-```
-
-**url**
-Shared page url
-```
-default: Current page url
-options: Any url
-```
-
-**title**
-Shared page title
-```
-default: Current page title
-options: Any string
-```
-
-**image**
-Shared page preview image
-```
-default: Current page preview image
-options: Any image src
-```
-
-**description**
-Shared page description
-```
-default: Current page description
-options: Any string
-```
-
-**networks**
-Which social network buttons to show
-```
-default: 'Mailto,Twitter,Pinterest,Facebook,GooglePlus,Reddit,Delicious,Tapiture,StumbleUpon,Linkedin,Slashdot,Technorati,Posterous,Tumblr,GoogleBookmarks,Newsvine,Pingfm,Evernote,Friendfeed,Vkontakte,Odnoklassniki,Mailru'
-options: Any of the network name's from pervios row comma separated
-```
+## 感谢
+感谢[DzmVasileusky](https://github.com/DzmVasileusky/needShareButton)，此项目基于他的作品改编。

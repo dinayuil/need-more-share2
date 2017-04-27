@@ -18,7 +18,6 @@ update：已加上QQ空间，人人网，豆瓣的支持。
 有多种方式使用，最简单的方法，加载 js 和 css 后，创建一个 class 名为 `need-share-button` 的分享按钮就好了，其他什么都不用做。
 
 第一步：在网页里加载 **needsharebutton.min.js** 和 **needsharebutton.min.css**。
-needsharebutton.min.css 会引用 `fontello-embedded.css`, 所以这个文件也要一并放在同目录下。
 ```markup
 <!-- needsharebutton Javascript file -->
 <script src="js/needsharebutton.min.js"></script>

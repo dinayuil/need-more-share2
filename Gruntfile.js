@@ -75,7 +75,7 @@ module.exports = function( grunt ) {
         tasks: ['copy','uglify']
       },
       styles: {
-        files: ['src/less/*.less'],
+        files: ['src/less/*.less', 'dist/fontello-embedded.css'],
         tasks: ['less','autoprefixer', 'csscomb', 'cssmin']
       }
     },

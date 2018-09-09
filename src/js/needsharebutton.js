@@ -191,15 +191,15 @@
 
         root.popup(url);
 	  	},
-	  	'tapiture' : function(el) {
-            var myoptions = getOptions(el);
-	  		var url = myoptions.protocol + 'tapiture.com/bookmarklet/image?';
-	  		url += 'img_src=' + encodeURIComponent(myoptions.image);
-	  		url += '&page_url=' + encodeURIComponent(myoptions.url);
-	  		url += '&page_title=' + encodeURIComponent(myoptions.title);
-
-        root.popup(url);
-	  	},
+	  	// 'tapiture' : function(el) {
+      //       var myoptions = getOptions(el);
+	  	// 	var url = myoptions.protocol + 'tapiture.com/bookmarklet/image?';
+	  	// 	url += 'img_src=' + encodeURIComponent(myoptions.image);
+	  	// 	url += '&page_url=' + encodeURIComponent(myoptions.url);
+	  	// 	url += '&page_title=' + encodeURIComponent(myoptions.title);
+      //
+      //   root.popup(url);
+	  	// },
 	  	'stumbleupon' : function(el) {
             var myoptions = getOptions(el);
 	  		var url = myoptions.protocol + 'www.stumbleupon.com/submit?';
@@ -217,22 +217,22 @@
 
         root.popup(url);
 	  	},
-	  	'slashdot' : function(el) {
-            var myoptions = getOptions(el);
-	  		var url = myoptions.protocol + 'slashdot.org/bookmark.pl?';
-	  		url += 'url=' + encodeURIComponent(myoptions.url);
-	  		url += '&title=' + encodeURIComponent(myoptions.title);
-
-        root.popup(url);
-	  	},
-	  	'technorati' : function(el) {
-            var myoptions = getOptions(el);
-	  		var url = myoptions.protocol + 'technorati.com/faves?';
-	  		url += 'add=' + encodeURIComponent(myoptions.url);
-	  		url += '&title=' + encodeURIComponent(myoptions.title);
-
-        root.popup(url);
-	  	},
+	  	// 'slashdot' : function(el) {
+      //       var myoptions = getOptions(el);
+	  	// 	var url = myoptions.protocol + 'slashdot.org/bookmark.pl?';
+	  	// 	url += 'url=' + encodeURIComponent(myoptions.url);
+	  	// 	url += '&title=' + encodeURIComponent(myoptions.title);
+      //
+      //   root.popup(url);
+	  	// },
+	  	// 'technorati' : function(el) {
+      //       var myoptions = getOptions(el);
+	  	// 	var url = myoptions.protocol + 'technorati.com/faves?';
+	  	// 	url += 'add=' + encodeURIComponent(myoptions.url);
+	  	// 	url += '&title=' + encodeURIComponent(myoptions.title);
+      //
+      //   root.popup(url);
+	  	// },
 	  	'posterous' : function(el) {
             var myoptions = getOptions(el);
 	  		var url = myoptions.protocol + 'posterous.com/share?';
@@ -248,32 +248,32 @@
 
         root.popup(url);
 	  	},
-	  	'googlebookmarks' : function(el) {
-            var myoptions = getOptions(el);
-	  		var url = myoptions.protocol + 'www.google.com/bookmarks/mark?op=edit';
-	  		url += '&bkmk=' + encodeURIComponent(myoptions.url);
-	  		url += '&title=' + encodeURIComponent(myoptions.title);
-	  		url += '&annotation=' + encodeURIComponent(myoptions.description);
-
-        root.popup(url);
-	  	},
-	  	'newsvine' : function(el) {
-            var myoptions = getOptions(el);
-	  		var url = myoptions.protocol + 'www.newsvine.com/_tools/seed&save?';
-	  		url += 'u=' + encodeURIComponent(myoptions.url);
-	  		url += '&h=' + encodeURIComponent(myoptions.title);
-
-        root.popup(url);
-	  	},
-	  	'pingfm' : function(el) {
-            var myoptions = getOptions(el);
-	  		var url = myoptions.protocol + 'ping.fm/ref/?';
-	  		url += 'link=' + encodeURIComponent(myoptions.url);
-	  		url += '&title=' + encodeURIComponent(myoptions.title);
-	  		url += '&body=' + encodeURIComponent(myoptions.description);
-
-        root.popup(url);
-	  	},
+	  	// 'googlebookmarks' : function(el) {
+      //       var myoptions = getOptions(el);
+	  	// 	var url = myoptions.protocol + 'www.google.com/bookmarks/mark?op=edit';
+	  	// 	url += '&bkmk=' + encodeURIComponent(myoptions.url);
+	  	// 	url += '&title=' + encodeURIComponent(myoptions.title);
+	  	// 	url += '&annotation=' + encodeURIComponent(myoptions.description);
+      //
+      //   root.popup(url);
+	  	// },
+	  	// 'newsvine' : function(el) {
+      //       var myoptions = getOptions(el);
+	  	// 	var url = myoptions.protocol + 'www.newsvine.com/_tools/seed&save?';
+	  	// 	url += 'u=' + encodeURIComponent(myoptions.url);
+	  	// 	url += '&h=' + encodeURIComponent(myoptions.title);
+      //
+      //   root.popup(url);
+	  	// },
+	  	// 'pingfm' : function(el) {
+      //       var myoptions = getOptions(el);
+	  	// 	var url = myoptions.protocol + 'ping.fm/ref/?';
+	  	// 	url += 'link=' + encodeURIComponent(myoptions.url);
+	  	// 	url += '&title=' + encodeURIComponent(myoptions.title);
+	  	// 	url += '&body=' + encodeURIComponent(myoptions.description);
+      //
+      //   root.popup(url);
+	  	// },
 	  	'evernote' : function(el) {
             var myoptions = getOptions(el);
 	  		var url = myoptions.protocol + 'www.evernote.com/clip.action?';
@@ -309,16 +309,16 @@
 
         root.popup(url);
 	  	},
-	  	'mailru' : function(el) {
-            var myoptions = getOptions(el);
-	  		var url = myoptions.protocol + 'connect.mail.ru/share?';
-        url += 'url=' + encodeURIComponent(myoptions.url);
-        url += '&title=' + encodeURIComponent(myoptions.title);
-        url += '&description=' + encodeURIComponent(myoptions.description);
-        url += '&imageurl=' + encodeURIComponent(myoptions.image);
-
-        root.popup(url);
-	  	}
+	  	// 'mailru' : function(el) {
+      //       var myoptions = getOptions(el);
+	  	// 	var url = myoptions.protocol + 'connect.mail.ru/share?';
+      //   url += 'url=' + encodeURIComponent(myoptions.url);
+      //   url += '&title=' + encodeURIComponent(myoptions.title);
+      //   url += '&description=' + encodeURIComponent(myoptions.description);
+      //   url += '&imageurl=' + encodeURIComponent(myoptions.image);
+      //
+      //   root.popup(url);
+	  	// }
 
 	  }
 
@@ -354,7 +354,7 @@
 			boxForm: 'horizontal', // horizontal or vertical
 			position: 'bottomCenter', // top / middle / bottom + Left / Center / Right
 			protocol: ['http', 'https'].indexOf(window.location.href.split(':')[0]) === -1 ? 'https://' : '//',
-			networks: 'Weibo,Wechat,Douban,QQZone,Twitter,Pinterest,Facebook,GooglePlus,Reddit,Linkedin,Tumblr,Evernote'
+			networks: 'Weibo,Wechat,Douban,QQZone,Twitter,Pinterest,Facebook,GooglePlus,Reddit,Linkedin,Tumblr,Mailto'
 		};
 
     // integrate custom options

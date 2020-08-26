@@ -1,4 +1,20 @@
-update：已加上QQ空间，人人网，豆瓣的支持。
+## build steps
+It's a javascript project, so first use npm to install dependencies:
+```
+npm install
+``` 
+then, use grunt to build target files, if `grunt` is not installed, instal with: 
+```
+npm install -g grunt
+```
+
+Now the Javascript library is at `dist`   
+Browser extension is at `browser-extension`
+
+----
+
+update：已加上QQ空间，人人网，豆瓣的支持。  
+update2: 已支持默认显示分享图标。见：[#8](https://github.com/revir/need-more-share2/issues/8)
 
 ## 起因
 本来 V2MM 一直使用 [MoreBasicShare](https://github.com/revir/more-basic-share/) 相安无事的，在将 [MoreBasicShare](https://github.com/revir/more-basic-share/) 移植到 V2MM 的[博客评论系统](https://nodebb.tech/blog-comments2-bu-jin-jin-shi-yi-ge-bo-ke-ping-lun-xi-tong/)的时候，发现 [MoreBasicShare](https://github.com/revir/more-basic-share/) 有几点缺陷难以移植：

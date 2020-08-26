@@ -40,7 +40,13 @@
 
 			<h2>Share button with class name 'need-share-button'</h2>
 			<div id="share-button-5" class="need-share-button-default need-share-button" data-share-position="middleRight" data-share-icon-style="box" data-share-networks="Wechat,Twitter,RenRen,Facebook,GooglePlus,QQZone">Share</div>
-
+			
+			<h3>Share panel</h3>
+			<div id="share-panel" class="need-share-panel"></div>
+			
+			<br><br><br><br><br><br><br>
+			<h3>Share panel box mode</h3>
+			<div id="share-panel-2" class="need-share-panel" data-share-icon-style="box"></div>
 		</div>
 
 		<script src="../dist/needsharebutton.js"></script>
@@ -49,6 +55,10 @@
 			new needShareButton(document.getElementById('share-button-2'));
 			new needShareButton(document.getElementById('share-button-3'));
 			new needShareButton(document.getElementById('share-button-4'));
+
+			new needShareButton(document.getElementById('share-panel'));
+			new needShareButton('#share-panel-2');
+
 		</script>
 	</body>
 </html>

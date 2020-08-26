@@ -14,7 +14,7 @@
   position: relative;  // The share button position must be relative.
 }
 
-.need-share-button-opened {
+.need-share-button-opened, .need-share-panel {
   position: relative;
 
   img.need-share-wechat-code-image {
@@ -53,6 +53,13 @@
     visibility: visible;
     opacity: 1;
     transform: scale(1);
+  }
+
+  .need-share-panel & {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
@@ -138,6 +145,10 @@
   top: 100%;
   left: 50%;
   margin-top: @dropdownOffset;
+
+  .need-share-panel & {
+    margin-top: 0;
+  }
 }
 
 

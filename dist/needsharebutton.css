@@ -10,10 +10,12 @@
 .need-share-button {
   position: relative;
 }
-.need-share-button-opened {
+.need-share-button-opened,
+.need-share-panel {
   position: relative;
 }
-.need-share-button-opened img.need-share-wechat-code-image {
+.need-share-button-opened img.need-share-wechat-code-image,
+.need-share-panel img.need-share-wechat-code-image {
   display: block;
 
   max-width: 150px;
@@ -51,6 +53,17 @@
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
           transform: scale(1);
+
+  opacity: 1;
+}
+.need-share-panel .need-share-button_dropdown {
+  visibility: visible;
+
+  -webkit-transition: none;
+          transition: none;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
 
   opacity: 1;
 }
@@ -137,6 +150,9 @@
   left: 50%;
 
   margin-top: 10px;
+}
+.need-share-panel .need-share-button_dropdown-bottom-center {
+  margin-top: 0;
 }
 /* Default theme
 ***********************************************/

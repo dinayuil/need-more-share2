@@ -338,7 +338,6 @@
 
 			// show popup
 			shareWindow = window.open(url,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=' + popupWidth + ', height=' + popupHeight + ', top=' + top + ', left=' + left);
-
 	  	// Puts focus on the newWindow
 	    if (window.focus) {
 	        shareWindow.focus();
@@ -477,31 +476,37 @@
         el.appendChild(dropdownEl);
     }
 
-   // close on click outside
-     document.addEventListener('click', function(event) {
-       var openedEl = document.querySelector('.need-share-button-opened');
-       if (!closest(event.target, '.need-share-button-opened')) {
-         if (openedEl) {
-            openedEl.classList.remove('need-share-button-opened');
+    var targetEl = typeof elem === 'string' ? document.querySelector(elem) : elem;
+     if (targetEl && targetEl.classList.contains('need-share-panel')) {
+      createDropdown(targetEl);
+      // targetEl.classList.add('need-share-button-opened');
+    } else 
+      // close on click outside
+      document.addEventListener('click', function(event) {
+        var openedEl = document.querySelector('.need-share-button-opened');
 
-            // hide wechat code image when close the dropdown.
-            if (openedEl.querySelector('.need-share-wechat-code-image')) {
-                openedEl.querySelector('.need-share-wechat-code-image').remove();
-            }
-         } else {
-            var el = closest(event.target, root.elem);
-            if (el) {
-               if (!el.classList.contains('need-share-button-opened')) {
-                 createDropdown(el);
-                 setTimeout(function () {
-                     el.classList.add('need-share-button-opened');
-                 }, 1);
+        if (!closest(event.target, '.need-share-button-opened')) {
+          if (openedEl) {
+              openedEl.classList.remove('need-share-button-opened');
 
-               }
-            }
-         }
-       }
-     });
+              // hide wechat code image when close the dropdown.
+              if (openedEl.querySelector('.need-share-wechat-code-image')) {
+                  openedEl.querySelector('.need-share-wechat-code-image').remove();
+              }
+          } else {
+              var el = closest(event.target, root.elem);
+              if (el) {
+                if (!el.classList.contains('need-share-button-opened')) {
+                  createDropdown(el);
+                  setTimeout(function () {
+                      el.classList.add('need-share-button-opened');
+                  }, 1);
+
+                }
+              }
+          }
+        }
+      });
 
   };
 

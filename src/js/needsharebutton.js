@@ -362,8 +362,8 @@
 			iconStyle: 'default', // default or box
 			boxForm: 'horizontal', // horizontal or vertical
 			position: 'bottomCenter', // top / middle / bottom + Left / Center / Right
-			protocol: ['http', 'https'].indexOf(window.location.href.split(':')[0]) === -1 ? 'https://' : '//',
-			networks: 'Weibo,Wechat,Douban,QQZone,Twitter,Pinterest,Facebook,GooglePlus,Reddit,Linkedin,Tumblr,Mailto'
+      protocol: ['http', 'https'].indexOf(window.location.href.split(':')[0]) === -1 ? 'https://' : '//',
+      networks: 'Twitter,Facebook,Reddit,Linkedin,Tumblr,Pinterest,Weibo,Wechat,Douban,QQZone,Mailto'
 		};
 
     // integrate custom options

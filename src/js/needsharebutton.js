@@ -48,11 +48,13 @@
 	    var content;
 	    // check querySelector existance for old browsers
 	    if (document.querySelector) {
-		    if (content = document.querySelector('title')){
+        if (content = document.querySelector('meta[property="og:title"]') || document.querySelector('meta[name="twitter:title"]')) {
+		      return content.getAttribute('content');
+		    } else if (content = document.querySelector('title')) {
 		      return content.innerText;
 		    }
-        }
-        return document.title;
+      }
+      return document.title;
 	  };
 
 	  // get image from html
@@ -381,10 +383,10 @@
         }
 
         // these attrs must get dynamically.
-        ret.url = window.location.href;
-        ret.title = root.getTitle();
-        ret.image = root.getImage();
-        ret.description = root.getDescription();
+        ret.url = root.options.url || window.location.href;
+        ret.title = root.options.title || root.getTitle();
+        ret.image = root.options.image || root.getImage();
+        ret.description = root.options.description || root.getDescription();
 
         for (var option in el.dataset) {
             // replace only 'share-' prefixed data-attributes

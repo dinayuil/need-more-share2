@@ -99,15 +99,25 @@
             var myoptions = getOptions(el);
 	  		var imgSrc = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+encodeURIComponent(myoptions.url);
             var dropdownEl = el.querySelector('.need-share-button_dropdown');
-	  		var img = dropdownEl.getElementsByClassName('need-share-wechat-code-image')[0];
+        var img = dropdownEl.getElementsByClassName('need-share-wechat-code-image')[0];
+
 	  		if (img) {
-	  			img.remove();
+          img.remove();
 	  		} else {
+          var loader = document.createElement('div');
+          loader.className = 'need-share-loader';
+          loader.innerText = 'loading...';
+          loader.title = 'loading qrcode...';
+
 		  		img = document.createElement('img');
 		  		img.src = imgSrc;
-		  		img.alt = 'loading wechat image...';
-		  		img.setAttribute("class",'need-share-wechat-code-image');
-		  		dropdownEl.appendChild(img);
+		  		img.alt = 'Create qrcode failed!';
+          img.setAttribute("class",'need-share-wechat-code-image');
+          img.onload = img.onerror = function () {
+            loader.remove();
+            dropdownEl.appendChild(img);
+          }
+          dropdownEl.appendChild(loader);
 	  		}
 	  	},
         'douban': function (el) {

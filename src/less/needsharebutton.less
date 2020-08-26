@@ -20,6 +20,7 @@
   img.need-share-wechat-code-image {
     // width: auto;
     max-width: 150px;
+    max-height: 150px;
     display: block;
     margin: 5px auto;
   }
@@ -405,5 +406,70 @@
   &.need-share-button_link-box {
     background: #F89C0E;
     color: #fff;
+  }
+}
+
+.need-share-button_dropdown {
+  .need-share-loader,
+  .need-share-loader:before,
+  .need-share-loader:after {
+    background: #ffffff;
+    -webkit-animation: load1 1s infinite ease-in-out;
+    animation: load1 1s infinite ease-in-out;
+    width: 1em;
+    height: 4em;
+  }
+  .need-share-loader {
+    color: grey;
+    text-indent: -9999em;
+    margin-top: 60px;
+    margin: auto;
+    height: 100px;
+    // width:;
+    position: relative;
+    font-size: 11px;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
+  .need-share-loader:before,
+  .need-share-loader:after {
+    position: absolute;
+    top: 0;
+    content: '';
+  }
+  .need-share-loader:before {
+    left: -1.5em;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+  .need-share-loader:after {
+    left: 1.5em;
+  }
+  @-webkit-keyframes load1 {
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 0;
+      // height: 4em;
+    }
+    40% {
+      box-shadow: 0 -2em;
+      // height: 5em;
+    }
+  }
+  @keyframes load1 {
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 0;
+      // height: 4em;
+    }
+    40% {
+      box-shadow: 0 -2em;
+      // height: 5em;
+    }
   }
 }

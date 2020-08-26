@@ -18,7 +18,8 @@ module.exports = function( grunt ) {
     uglify: {
       scripts: {
         files: {
-          'dist/needsharebutton.min.js': 'dist/needsharebutton.js'
+          'dist/needsharebutton.min.js': 'dist/needsharebutton.js',
+          'browser-extension/needsharebutton.min.js': 'dist/needsharebutton.js'
         }
       }
     },
@@ -63,7 +64,8 @@ module.exports = function( grunt ) {
     cssmin: {
       styles: {
         files: {
-          'dist/needsharebutton.min.css': 'dist/needsharebutton.css'
+          'dist/needsharebutton.min.css': 'dist/needsharebutton.css',
+          'browser-extension/needsharebutton.min.css': 'dist/needsharebutton.css'
         }
       }
     },

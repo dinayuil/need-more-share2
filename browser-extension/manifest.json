@@ -1,0 +1,22 @@
+{
+	"manifest_version": 2,
+    "name": "NeedMoreShares: share webpage on social medias",
+    "version": "0.0.1",
+	"description": "Share the link to social medias",
+	"permissions": ["activeTab"],
+	"browser_action": {
+        "default_title": "NeedMoreShares: share webpage on social medias",
+        "default_popup": "popup.html"
+	},
+	"icons": {
+		"32": "images/share-32.png",
+		"64": "images/share-64.png",
+		"128": "images/share-128.png",
+		"256": "images/share-256.png"
+	},
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "revir.qing@gmail.com"
+		}
+	}
+}

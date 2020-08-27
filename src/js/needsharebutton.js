@@ -101,12 +101,15 @@
             var myoptions = getOptions(el);
 	  		var imgSrc = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+encodeURIComponent(myoptions.url);
             var dropdownEl = el.querySelector('.need-share-button_dropdown');
-        var img = dropdownEl.getElementsByClassName('need-share-wechat-code-image')[0];
+            var img = dropdownEl.getElementsByClassName('need-share-wechat-code-image')[0];
+            var loader = dropdownEl.getElementsByClassName('need-share-loader')[0];
 
 	  		if (img) {
           img.remove();
+        } else if(loader) {
+          loader.remove();
 	  		} else {
-          var loader = document.createElement('div');
+          loader = document.createElement('div');
           loader.className = 'need-share-loader';
           loader.innerText = 'loading...';
           loader.title = 'loading qrcode...';
@@ -116,8 +119,10 @@
 		  		img.alt = 'Create qrcode failed!';
           img.setAttribute("class",'need-share-wechat-code-image');
           img.onload = img.onerror = function () {
-            loader.remove();
-            dropdownEl.appendChild(img);
+            if (loader.isConnected) {
+              loader.remove();
+              dropdownEl.appendChild(img);
+            }
           }
           dropdownEl.appendChild(loader);
 	  		}

@@ -27,7 +27,7 @@ update2: 已支持默认显示分享图标。见：[#8](https://github.com/revir
 ## Demo
 可以见 V2MM 上的分享按钮，此插件还包含一个 [Demo](https://github.com/revir/need-more-share2/blob/master/demo/index.html) 页面，需把项目 clone 到本地展示。
 
-![screenshot](https://github.com/revir/need-more-share2/raw/master/screenshot.png)
+![screenshot](https://github.com/revir/need-more-share2/raw/master/images/screenshot.png)
 
 ## 使用方式
 

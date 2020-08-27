@@ -56,6 +56,8 @@ chrome.tabs.executeScript({
         });
     else 
         new needShareButton('#i-share', {
-            title: 'NeedMoreShares: share web pages on social medias'
+            url: 'https://chrome.google.com/webstore/detail/more-shares/knfclbeejfkccljamjdfefmkcjbhimhe',
+            title: 'NeedMoreShares: Share any web page to more social media sites',
+            image: "https://github.com/revir/need-more-share2/raw/master/images/browser-extension-640*400.png"
         });
 })

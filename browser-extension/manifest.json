@@ -1,11 +1,14 @@
 {
 	"manifest_version": 2,
-    "name": "NeedMoreShares: share pages on social medias",
-    "version": "0.0.1",
-	"description": "Share the link to social medias",
-	"permissions": ["activeTab"],
+    "name": "MoreShares",
+    "version": "0.0.2",
+	"description": "Share on various social media sites",
+    "permissions": ["activeTab"],
+    "background": {
+		"scripts": ["background.js"]
+	},
 	"browser_action": {
-        "default_title": "NeedMoreShares: share pages on social medias",
+        "default_title": "MoreShares: share on various social media sites",
         "default_popup": "popup.html"
 	},
 	"icons": {
@@ -13,5 +16,9 @@
 		"64": "images/share-64.png",
 		"128": "images/share-128.png",
 		"256": "images/share-256.png"
+    },
+    "options_ui": {
+		"page": "option.html",
+		"open_in_tab": true
 	}
 }

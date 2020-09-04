@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
     "name": "MoreShares",
-    "version": "0.0.4",
+    "version": "0.0.5",
 	"description": "Share on various social media sites",
     "permissions": ["activeTab"],
     "background": {

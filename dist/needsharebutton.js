@@ -477,6 +477,10 @@
             link.className += ' icon-' + network;
             link.dataset.network = network;
             link.title = network;
+
+            // hardcode title for wechat, actually it's justa qrcode.
+            if (network === 'wechat') link.title = "Generate a qrcode"
+
             dropdownEl.appendChild(link);
         }
 

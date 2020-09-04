@@ -341,22 +341,26 @@
 
 	  // open share link in a popup
 	  root.popup = function(url) {
+      var left, top; 
+
+      var popupWidth = 600,
+          popupHeight = 500;
+          
       // caculate browser window width
       // if window width is too narrow, use screen width;
       var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
-      if (width < 600) width = screen.width;
       var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
-      if (height < 500) height = screen.height;
-
-	  	// set left and top position
-	  	var popupWidth = 600,
-	  			popupHeight = 500,
-	  			// fix dual screen mode
-	  			dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left,
-	  		  dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top,
-	  		  // calculate top and left position
-	  		  left = ((width / 2) - (popupWidth / 2)) + dualScreenLeft,
-	  		  top = ((height / 2) - (popupHeight / 2)) + dualScreenTop;
+      if (width < 600 && height < 500) {
+        left = (screen.width / 2) - (popupWidth / 2);
+        top = (screen.height / 2) - (popupHeight / 2);
+      } else {
+        // set left and top position
+	  	  var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left,
+          dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+        // calculate top and left position
+        left = ((width / 2) - (popupWidth / 2)) + dualScreenLeft;
+        top = ((height / 2) - (popupHeight / 2)) + dualScreenTop;
+      }
 
 			var shareWindow = window.open(url,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=' + popupWidth + ', height=' + popupHeight + ', top=' + top + ', left=' + left);
 	  	// Puts focus on the newWindow

@@ -1,7 +1,7 @@
 {
   "name": "MoreShares",
   "description": "Share on various social media sites",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "./Gruntfile.js",
   "devDependencies": {
     "grunt": "~0.4.1",

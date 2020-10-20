@@ -1,3 +1,14 @@
+## About 
+This is a pure Javascript library for sharing things on social media. No jQuery or other dependencies, particularly designed for Chinese users, as it supports popular Chinese websites like
+Douban, Wechat, Weibo etc. 
+
+## Browsers Extension 
+Now good news, other than a programmer's library, it could be directly installed on Chrome and Firefox. Please help me review it on your browser, thank you.  
+
+* [Chrome](https://chrome.google.com/webstore/detail/moreshares/knfclbeejfkccljamjdfefmkcjbhimhe)  
+* [Firefox](https://addons.mozilla.org/en-US/firefox/addon/more-shares/)
+
+![extension screenshot](images/browser-extension-640*400.png)
 ## build steps
 It's a javascript project, so first use npm to install dependencies:
 ```
@@ -27,7 +38,7 @@ update2: 已支持默认显示分享图标。见：[#8](https://github.com/revir
 ## Demo
 可以见 V2MM 上的分享按钮，此插件还包含一个 [Demo](https://github.com/revir/need-more-share2/blob/master/demo/index.html) 页面，需把项目 clone 到本地展示。
 
-![screenshot](https://github.com/revir/need-more-share2/raw/master/images/screenshot.png)
+![screenshot](images/screenshot.png)
 
 ## 使用方式
 
@@ -56,6 +67,8 @@ new needShareButton(document.getElementById('my-share-button'));
 new needShareButton('#my-share-button');
 
 ```
+
+* 如果需要默认就展示分享图标， 只需要加上 `need-share-panel` 的 class. 参考 [Demo](https://github.com/revir/need-more-share2/blob/master/demo/index.html) 页面.
 
 ## needShareButton 函数
 

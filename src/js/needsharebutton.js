@@ -91,7 +91,7 @@
 	  root.share = {
 	  	'weibo': function (el) {
             var myoptions = getOptions(el);
-	  		var url = 'http://v.t.sina.com.cn/share/share.php?title='
+	  		var url = 'https://service.weibo.com/share/share.php?title='
 	  		+ encodeURIComponent(myoptions.title)
 	  		+ "&url="+encodeURIComponent(myoptions.url)
 	  		+ "&pic="+encodeURIComponent(myoptions.image);
